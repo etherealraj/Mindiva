@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About Us - Mindiva</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutus.css') }}">
+</head>
+<body>
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h1>About Us</h1>
+        <p>
+            Mindiva is a digital sanctuary created by Stephen Gill and Nityanand Tripathi, designed to comfort and support 
+            individuals dealing with trauma, anxiety, or depression. Our platform blends soothing visual experiences 
+            with mental wellness tools to help you feel at ease.
+        </p>
+        <p>
+            Our mission is to build a space where users can navigate their emotions, reflect, and feel supported. We 
+            incorporate modern animations, calming designs, and intuitive navigation to create a peaceful environment 
+            online.
+        </p>
+
+        <!-- Testimonial Section -->
+        <section class="testimonials">
+            <h3>What Our Users Say</h3>
+            <div class="testimonial">
+                <p>"Mindiva is my go-to site for relaxing after a long day. The colors and animations really calm me down."</p>
+                <p>- Sarah Thompson</p>
+            </div>
+            <div class="testimonial">
+                <p>"I love how easy it is to navigate, and the mental wellness features are a bonus. It’s like therapy at my fingertips!"</p>
+                <p>- Michael Rivera</p>
+            </div>
+        </section>
+
+        <!-- Team Section (With Hover Animation) -->
+        <section class="team-section">
+            <h3>Meet the Team</h3>
+            <div class="team">
+                <div class="team-member">
+                    <h2>Stephen Gill</h2>
+                    <p>Software Developer</p>
+                    <a href="https://www.linkedin.com/in/stephen-gill-b73084283/" target="_blank">LinkedIn Profile</a>
+                    <img id="steve"  class="grayscale" src="{{ url_for('static', filename='stve.jpg') }}" alt="Stephen photo">
+                </div>
+                <div class="team-member">
+                    <h2>Nityanand Tripathi</h2>
+                    <p>Software Developer</p>
+                    <a href="https://www.linkedin.com/in/nityanand-tripathi-70ba022b2/" target="_blank">LinkedIn Profile</a>
+                    <img id="raj"  class="grayscale" src="{{ url_for('static', filename='raj.png') }}" alt="Nityanand Photo">
+                </div>
+            </div>
+        </section>
+
+       
+    <!-- Footer with Spinning Social Icons -->
+    <footer class="footer">
+        <p>&copy; 2024 Mindiva | Bringing Comfort to Your Digital Space</p>
+        <ul class="socials">
+            <li><a href="https://facebook.com" target="_blank"><img id="loading-logo" src="{{ url_for('static', filename='facebookk.png') }}" alt="Facebook"></li>
+            <li><a href="https://instagram.com" target="_blank"><img id="loading-logo" src="{{ url_for('static', filename='insta.png') }}" alt="Instagram"></li>
+            <li><a href="https://twitter.com" target="_blank"><img id="loading-logo" src="{{ url_for('static', filename='twitter.png') }}" alt="Twitter"></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

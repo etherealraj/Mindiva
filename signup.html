@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/VANTA/vanta/master/dist/vanta.birds.min.js"></script>
+</head>
+<body>
+
+    <div id="vanta-container"></div>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Logo.png') }}" alt="Company Logo" />
+        </div>
+        <h1>Mindiva</h1>
+        <h2>Create New Account</h2>
+        <form method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="footer">
+            <p>Already have an account? <a href="#">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Vanta.js effect
+        VANTA.BIRDS({
+            el: "#vanta-container",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00
+        });
+    </script>
+
+    <style>
+        /* CSS to make sure Vanta.js effect covers the background */
+        body, html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        #vanta-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Behind other elements */
+        }
+
+        .container {
+            position: relative;
+            z-index: 1; /* Above the Vanta background */
+            /* Additional styles can remain unchanged */
+        }
+
+        /* Additional CSS styles for container */
+    </style>
+
+</body>
+</html>

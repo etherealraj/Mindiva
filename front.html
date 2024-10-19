@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindiva</title>
+    <!-- Linking the styles from the static/css folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/front.css') }}">
+</head>
+<body>
+
+    <!-- Loading Screen for Logo and Company Name -->
+    <div id="loading-screen">
+        <img id="loading-logo" src="{{ url_for('static', filename='Logo.png') }}" alt="Logo">
+
+
+        <h1 id="company-name">Mindiva</h1>
+    </div>
+
+    <!-- Main Content (hidden initially) -->
+    <div id="main-content" style="display:none;">
+        <header>
+            <nav class="navbar">
+                <video autoplay muted loop class="video-background">
+                    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="logo-container">
+                    <img id="loading-logo" src="{{ url_for('static', filename='Logo.png') }}" alt="Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="{{ url_for('aboutus') }}" class="aboutus">About us</a></li>
+                    <li><a href="{{ url_for('signup') }}" class="sign-up-button">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Add your page content here -->
+        <section id="content">
+            <!-- Your content goes here -->
+        </section>
+    </div>
+
+    <!-- Script for animating the transition -->
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                // Hide the loading screen and show the main content
+                document.getElementById("loading-screen").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            }, 3000); // 3 seconds for the loading screen
+
+            // Additional animation: move logo to the navbar after page load
+            setTimeout(function() {
+                document.getElementById("loading-logo").classList.add("logo-to-navbar");
+                document.getElementById("company-name").classList.add("hide-name");
+                document.getElementById("nav-logo").classList.add("show-logo");
+            }, 3000);
+        };
+    </script>
+
+</body>
+</html>

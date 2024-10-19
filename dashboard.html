@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindiva Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+    <!-- Dashboard Structure (Sidebar, Header, Content, etc.) -->
+    <div class="dashboard">
+        <!-- Sidebar, Header, and Main Content... -->
+
+        <!-- Modal for Survey -->
+        <div id="survey-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Quick Mental Health Survey</h2>
+                <p>We’d love to know how you’re feeling today! Please rate the following:</p>
+
+                <form id="survey-form">
+                    <!-- Question 1 -->
+                    <label for="mood">How's your mood today?</label>
+                    <input type="range" id="mood" name="mood" min="1" max="10" value="5">
+                    <span id="mood-value">5</span>
+
+                    <!-- Question 2 -->
+                    <label for="stress">Stress levels?</label>
+                    <input type="range" id="stress" name="stress" min="1" max="10" value="5">
+                    <span id="stress-value">5</span>
+
+                    <!-- Question 3 -->
+                    <label for="sleep">Sleep quality?</label>
+                    <input type="range" id="sleep" name="sleep" min="1" max="10" value="5">
+                    <span id="sleep-value">5</span>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for modal and form interaction -->
+    <script>
+        // Get modal element and open it on page load
+        const modal = document.getElementById("survey-modal");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        // Open modal on page load
+        window.onload = function() {
+            modal.style.display = "block";
+        }
+
+        // Close modal when user clicks on close button
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Update range values dynamically
+        const moodSlider = document.getElementById("mood");
+        const moodValue = document.getElementById("mood-value");
+
+        const stressSlider = document.getElementById("stress");
+        const stressValue = document.getElementById("stress-value");
+
+        const sleepSlider = document.getElementById("sleep");
+        const sleepValue = document.getElementById("sleep-value");
+
+        moodSlider.oninput = function() {
+            moodValue.innerText = this.value;
+        }
+        stressSlider.oninput = function() {
+            stressValue.innerText = this.value;
+        }
+        sleepSlider.oninput = function() {
+            sleepValue.innerText = this.value;
+        }
+    </script>
+    
+
+        <!-- Dashboard Layout -->
+        <div class="dashboard">
+    
+            <!-- Sidebar (optional if you want to add more links later) -->
+            <nav class="sidebar">
+                <div class="logo">
+                    <img src="your-logo.png" alt="Mindiva Logo">
+                </div>
+                <ul>
+                    <li><a href="#company-info">About Us</a></li>
+                    <li><a href="#consultancy">Consultancy Services</a></li>
+                    <li><a href="#games">Mind Health Games</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#meditation">Meditation</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Header -->
+            <header class="header">
+                <h1>Welcome, {{ name }}!</h1>
+                <p>Your mental health score today: <strong>{{ score }}/10</strong></p>
+            </header>
+    
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Company Info Section -->
+                <section id="company-info" class="card">
+                    <h2>About Mindiva</h2>
+                    <p>At Mindiva, we focus on promoting mental health through personalized solutions. Our mission is to support your mental well-being with a mix of expert consultancy, fun mental health games, and a supportive community.</p>
+                </section>
+    
+                <!-- Consultancy Section -->
+                <section id="consultancy" class="card">
+                    <h2>Consultancy Services</h2>
+                    <p>Our professional consultants are available to provide you with tailored advice and support. <a href="#book-consultation">Book a consultation</a> with one of our experts today.</p>
+                </section>
+    
+                <!-- Mind Health Games Section -->
+                <section id="games" class="card">
+                    <h2>Mind Health Games</h2>
+                    <p>Try out some fun mental health exercises and games designed to reduce stress, improve focus, and boost your mood.</p>
+                    <button>Play Now</button>
+                </section>
+    
+                <!-- Community Section -->
+                <section id="community" class="card">
+                    <h2>Join Our Community</h2>
+                    <p>Engage with others, share your experiences, ask questions, and find support from people just like you.</p>
+                    <button>Join the Community</button>
+                </section>
+    
+                <!-- Meditation Section -->
+                <section id="meditation" class="card">
+                    <h2>Meditation and Mindfulness</h2>
+                    <p>Find peace and tranquility with our guided meditation sessions.</p>
+                    <button>Start Meditation</button>
+                </section>
+            </main>
+    
+        </div>
+    
+    
+
+</body>
+</html>
